@@ -5,7 +5,7 @@ import {faCode} from '@fortawesome/free-solid-svg-icons';
 
 
 export const ApiCard = props => {
-    const {apiKey, apiName, apiDescription, gitHubLink, usedLanguages} = props;
+    const {apiName, apiDescription, gitHubLink, usedLanguages} = props;
 
     // const substring = 'Ch.Juniordev.';
     // const newApiName =

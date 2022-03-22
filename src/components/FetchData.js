@@ -26,7 +26,6 @@ export const FetchData = props => {
 
     return data.map(item => <ApiCard
             key={item.id}
-            apiKey={item.id}
             apiName={item.name.includes(substring) ? [...item.name].splice(13, item.name.length).join('') : item.name}
             apiDescription={item.description}
             gitHubLink={item.html_url}
