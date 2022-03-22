@@ -21,7 +21,6 @@ export const FetchData = props => {
 
     const substring = 'Ch.Juniordev.';
 
-
     return data.map(item => <ApiCard
         key={item.id}
         apiKey={item.id}
