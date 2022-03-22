@@ -14,7 +14,7 @@ export const ApiCard = props => {
     //         .join('');
 
     return (
-        <li className={'api-card--container'} key={'0' + apiKey}>
+        <li className={'api-card--container'} >
             <div className={'api-card--upper'}>
                 <div className={'api-card--logo'}>
                     <FontAwesomeIcon icon={faGithub} className={'github-icon'}/>
@@ -33,14 +33,14 @@ export const ApiCard = props => {
             </div>
             <div className={'api-card--lower'}>
                 <ul className={'api-card--link-list'}>
-                    <li className={'api-card--link'} style={{'--i': 1}} key={'1' + apiKey}>
+                    <li className={'api-card--link'} style={{'--i': 1}} >
                         <a href={gitHubLink}> <FontAwesomeIcon icon={faGithub}/> </a>
                     </li>
-                    <li className={'api-card--link'} style={{'--i': 2}} key={'2' + apiKey}>
+                    <li className={'api-card--link'} style={{'--i': 2}} >
                         <a href="https://kwiatkowski1981.github.io/simple-editor/"> <FontAwesomeIcon icon={faYoutube}/>
                         </a>
                     </li>
-                    <li className={'api-card--link'} style={{'--i': 3}} key={'3' + apiKey}>
+                    <li className={'api-card--link'} style={{'--i': 3}} >
                         <a href="https://github.com/kwiatkowski1981/simple-editor"> <FontAwesomeIcon icon={faCode}/>
                         </a>
                     </li>
