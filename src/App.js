@@ -1,17 +1,8 @@
 import './App.css';
-import {FetchData} from "./components/FetchData";
+import {ApiRepoList} from "./components/ApiRepoList";
 
 function App() {
-
-    const githubUrl = 'https://api.github.com/users/kwiatkowski1981/repos?sort=updated&direction=asc';
-
-    return (
-        <>
-            <ul className={'api-card--list'}>
-            <FetchData apiUri={githubUrl}/>
-            </ul>
-        </>
-    );
+    return <ApiRepoList />;
 }
 
 export default App;
