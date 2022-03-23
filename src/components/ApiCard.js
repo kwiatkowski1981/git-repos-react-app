@@ -12,19 +12,15 @@ export const ApiCard = props => {
     apiName = apiName.toLowerCase().includes(substring) ? [...apiName].splice(13, apiName.length).join('') : apiName;
     apiName = apiName.replaceAll('_', '-');
 
-    // [...apiName].forEach(letter => {
-    //     if (letter === letter.toUpperCase() && (letter !== letter.index(0) && '-' && '2')) {
-    //         // if (letter !== apiName[0] && '-' && '2') {
-    //             console.log(letter)
-    //         // }
-    //     }
-    // })
-
-    // const r = /[A-Z]+[a-z]+/g;
-    // const split = [...apiName.matchAll(r)].map((d) => {
-    //     return d
-    // })
-    // apiName = split.join('-');
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    const r = /[A-Za-z0-9][a-z0-9]+/g;
+    const split = [...apiName.matchAll(r)].map((d) => {
+        return d.toString()
+    })
+    const capitalized = split.map((e)=>capitalizeFirstLetter(e))
+    apiName = capitalized.join('-')
 
     return (
         <li className={'api-card--container'}>
