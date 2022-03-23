@@ -121,7 +121,8 @@ body {
 .api-card--repo-name {
     width: 80%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: inherit;
     align-items: center;
     color: #fff;
     text-transform: capitalize;
@@ -142,6 +143,11 @@ body {
     transition: 0.7s;
 }
 
+.api-card--repo-name h4 {
+    font-size: 1em;
+    letter-spacing: 3px;
+    color: red;
+}
 
 .api-card--repo-description {
     display: flex;
@@ -153,6 +159,7 @@ body {
     font-size: 14px;
     font-weight: 300;
     text-transform: initial;
+    flex-wrap: wrap;
 }
 
 .api-card--link-list {

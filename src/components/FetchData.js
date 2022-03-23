@@ -25,7 +25,7 @@ export const FetchData = props => {
                 apiName={item.name}
                 apiDescription={item.description}
                 gitHubLink={item.html_url}
-                usedLanguages={item.languages}
+                usedLanguage={item.language}
             />
     )
 }
