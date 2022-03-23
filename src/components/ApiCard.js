@@ -5,14 +5,9 @@ import {faCode} from '@fortawesome/free-solid-svg-icons';
 
 
 export const ApiCard = props => {
-    const {apiName, apiDescription, gitHubLink, usedLanguages} = props;
-
-    // const substring = 'Ch.Juniordev.';
-    // const newApiName =
-    //     [...apiName]
-    //         .splice(13, apiName.length)
-    //         .join('');
-
+    let {apiName, apiDescription, gitHubLink, usedLanguages} = props;
+    const substring = 'ch.juniordev.';
+    apiName = apiName.toLowerCase().includes(substring) ? [...apiName].splice(13, apiName.length).join('') : apiName;
     return (
         <li className={'api-card--container'} >
             <div className={'api-card--upper'}>
@@ -20,8 +15,8 @@ export const ApiCard = props => {
                     <FontAwesomeIcon icon={faGithub} className={'github-icon'}/>
                 </div>
                 <div className={'api-card--repo-name'}>
-                    {/*<h2> {apiName.includes(substring) ? newApiName : apiName} </h2>*/}
                     <h2> {apiName} </h2>
+                    {/*<h2> {apiName} </h2>*/}
                     <br/>
                     <h4>{usedLanguages}</h4>
                 </div>
