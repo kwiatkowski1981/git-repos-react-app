@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faYoutube, faGithub} from '@fortawesome/free-brands-svg-icons';
 import {faCode} from '@fortawesome/free-solid-svg-icons';
+import {containerBackgroundOpacity, technologyTextOpacity, technologyUsedColor} from "./apiCardColors";
 
 
 export const ApiCard = props => {
     const {apiDescription, gitHubLink, usedLanguage} = props;
     let {apiName} = props;
+
+    const [bgColorOnHover, setBgColorOnHover] = useState('rgba(255, 255, 255, 0.15)');
 
     const substring = 'ch.juniordev.';
     apiName = apiName.toLowerCase().includes(substring) ? [...apiName].splice(13, apiName.length).join('') : apiName;
@@ -19,18 +22,26 @@ export const ApiCard = props => {
     const split = [...apiName.matchAll(r)].map((d) => {
         return d.toString()
     })
-    const capitalized = split.map((e)=>capitalizeFirstLetter(e))
+    const capitalized = split.map((e) => capitalizeFirstLetter(e))
     apiName = capitalized.join('-')
 
+    //todo doesn't work it remove this comment, why? have to initialize it?
+    console.log(`${usedLanguage}    => color: ` + technologyUsedColor(usedLanguage, containerBackgroundOpacity));
+
     return (
-        <li className={'api-card--container'}>
+        <li
+            className={'api-card--container'}
+            style={{background: bgColorOnHover}}
+            onMouseEnter={() => setBgColorOnHover(technologyUsedColor({usedLanguage, containerBackgroundOpacity}))}
+            onMouseLeave={() => setBgColorOnHover('rgba(255, 255, 255, 0.15)')}
+        >
             <div className={'api-card--upper'}>
                 <div className={'api-card--logo'}>
                     <FontAwesomeIcon icon={faGithub} className={'github-icon'}/>
                 </div>
                 <div className={'api-card--repo-name'}>
                     <h2> {apiName} </h2>
-                    <h4>{usedLanguage}</h4>
+                    <h4 style={{color: technologyUsedColor({usedLanguage, technologyTextOpacity})}}>{usedLanguage}</h4>
                 </div>
             </div>
             <div className={'api-card--middle'}>

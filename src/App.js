@@ -2,7 +2,8 @@ import './App.css';
 import {ApiRepoList} from "./components/ApiRepoList";
 
 function App() {
-    return <ApiRepoList />;
+    return <ApiRepoList />
+
 }
 
 export default App;
