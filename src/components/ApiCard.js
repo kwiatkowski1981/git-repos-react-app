@@ -2,14 +2,54 @@ import React, {useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faYoutube, faGithub} from '@fortawesome/free-brands-svg-icons';
 import {faCode} from '@fortawesome/free-solid-svg-icons';
-import {containerBackgroundOpacity, technologyTextOpacity, technologyUsedColor} from "./apiCardColors";
+// import {
+//     containerBackgroundOpacity,
+//     initialColor,
+//     technologyTextOpacity,
+//     technologyUsedColor
+// } from "./apiCardColors";
 
 
 export const ApiCard = props => {
     const {apiDescription, gitHubLink, usedLanguage} = props;
     let {apiName} = props;
 
-    const [bgColorOnHover, setBgColorOnHover] = useState('rgba(255, 255, 255, 0.15)');
+
+    const initialColor = 'rgba(255, 255, 255, 0.15)';
+
+    let color = initialColor;
+    let containerBackgroundOpacity = 0.55;
+    let technologyTextOpacity = 1;
+    const technologyUsedColor = (usedLanguage, opacity) => {
+        if (usedLanguage === 'Java') {
+            color = `rgb(168,116,47, ${opacity})`
+        }
+        else if (usedLanguage === 'JavaScript') {
+            color = `rgb(239,223,112, ${opacity})`
+        }
+        else if (usedLanguage === 'HTML') {
+            color = `rgb(211,86,53, ${opacity})`
+        }
+        else if (usedLanguage === 'TypeScript') {
+            color = `rgb(63,115, 135, ${opacity})`
+        }
+        else if (usedLanguage === 'CSS') {
+            color = `rgb(82,64, 120, ${opacity})`
+        }
+        else if (usedLanguage === 'Python') {
+            color = `rgb(68,114,161, ${opacity})`
+        }
+        else if (usedLanguage === 'SCSS') {
+            color = `rgb(184,91,138, ${opacity})`
+        }
+        else if (usedLanguage === null) {
+            color = `rgb(255,255,255, ${opacity})`
+        }
+        return color
+    }
+
+
+    const [bgColorOnHover, setBgColorOnHover] = useState(initialColor);
 
     const substring = 'ch.juniordev.';
     apiName = apiName.toLowerCase().includes(substring) ? [...apiName].splice(13, apiName.length).join('') : apiName;
@@ -25,16 +65,18 @@ export const ApiCard = props => {
     const capitalized = split.map((e) => capitalizeFirstLetter(e))
     apiName = capitalized.join('-')
 
-    //todo doesn't work it remove this comment, why? have to initialize it?
+    // todo => it doesn't work as I remove this console.log!
+    // todo => Is data removed from memory even before being passed to the component?
     console.log(`${usedLanguage}    => color: ` + technologyUsedColor(usedLanguage, containerBackgroundOpacity));
+
 
     return (
         <li
             className={'api-card--container'}
-            style={{background: bgColorOnHover}}
             onMouseEnter={() => setBgColorOnHover(technologyUsedColor({usedLanguage, containerBackgroundOpacity}))}
-            onMouseLeave={() => setBgColorOnHover('rgba(255, 255, 255, 0.15)')}
-        >
+            onMouseLeave={() => setBgColorOnHover(initialColor)}
+            style={{background: bgColorOnHover}}
+            >
             <div className={'api-card--upper'}>
                 <div className={'api-card--logo'}>
                     <FontAwesomeIcon icon={faGithub} className={'github-icon'}/>
