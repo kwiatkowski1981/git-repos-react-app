@@ -2,12 +2,6 @@ import React, {useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faYoutube, faGithub} from '@fortawesome/free-brands-svg-icons';
 import {faCode} from '@fortawesome/free-solid-svg-icons';
-// import {
-//     containerBackgroundOpacity,
-//     initialColor,
-//     technologyTextOpacity,
-//     technologyUsedColor
-// } from "./apiCardColors";
 
 
 export const ApiCard = props => {
