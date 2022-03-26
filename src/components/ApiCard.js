@@ -61,8 +61,8 @@ export const ApiCard = props => {
 
     // todo => it doesn't work as I remove this console.log!
     // todo => Is data removed from memory even before being passed to the component?
-    console.log(`${usedLanguage}    => color: ` + technologyUsedColor(usedLanguage, containerBackgroundOpacity));
-
+    // console.log(`${usedLanguage}    => color: ` + technologyUsedColor(usedLanguage, containerBackgroundOpacity));
+    technologyUsedColor(usedLanguage, containerBackgroundOpacity)
 
     return (
         <li
