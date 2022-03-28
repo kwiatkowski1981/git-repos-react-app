@@ -24,6 +24,7 @@ export const FetchData = props => {
                 key={item.id}
                 apiName={item.name}
                 apiDescription={item.description}
+                ghPages={item.homepage}
                 gitHubLink={item.html_url}
                 usedLanguage={item.language}
             />
