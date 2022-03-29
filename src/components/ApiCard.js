@@ -54,14 +54,15 @@ export const ApiCard = props => {
     const capitalized = split.map((e) => capitalizeFirstLetter(e));
     apiName = capitalized.join('-');
 
-    technologyUsedColor(usedLanguage, 0, containerBackgroundOpacity);
+    const apiCardBgColor = technologyUsedColor(usedLanguage, 0, containerBackgroundOpacity);
+    const apiCardTechColor = technologyUsedColor(usedLanguage, 0, technologyTextOpacity);
 
     const [bgColorOnHover, setBgColorOnHover] = useState(initialColor);
 
     return (
         <li
             className={'api-card__container'}
-            onMouseEnter={() => setBgColorOnHover(technologyUsedColor({usedLanguage, containerBackgroundOpacity}))}
+            onMouseEnter={() => setBgColorOnHover(apiCardBgColor)}
             onMouseLeave={() => setBgColorOnHover(initialColor)}
             style={{background: bgColorOnHover}}
         >
@@ -71,7 +72,7 @@ export const ApiCard = props => {
                 </div>
                 <div className={'api-card__repo-name'}>
                     <h2> {apiName} </h2>
-                    <h4 style={{color: technologyUsedColor({usedLanguage, technologyTextOpacity})}}>{usedLanguage}</h4>
+                    <h4 style={{color: apiCardTechColor}}>{usedLanguage}</h4>
                 </div>
             </div>
             <div className={'api-card__middle'}>
