@@ -7,11 +7,10 @@ export const FetchData = props => {
     useEffect(() => {
         const getData = async () => {
             const result = await fetch(props.apiUri);
-            const getResult = await result.json();
-            setData(getResult);
+            setData(await result.json());
         };
         try {
-            getData()
+            getData();
         } catch (e) {
             console.error(e);
         }
@@ -20,14 +19,15 @@ export const FetchData = props => {
         }
     }, [props.apiUri]);
 
-        return data.map(item => <ApiCard
-                key={item.id}
-                apiName={item.name}
-                apiDescription={item.description}
-                ghPages={item.homepage}
-                gitHubLink={item.html_url}
-                usedLanguage={item.language}
-            />
+    return data.map(
+        item => <ApiCard
+            key={item.id}
+            apiName={item.name}
+            apiDescription={item.description}
+            ghPages={item.homepage}
+            gitHubLink={item.html_url}
+            usedLanguage={item.language}
+        />
     )
 }
 

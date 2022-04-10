@@ -9,33 +9,33 @@ export const ApiCard = props => {
 
     const initialColor = 'rgba(255, 255, 255, 0.15)';
     let color = initialColor;
-    let containerBackgroundOpacity = 0.55;
-    let technologyTextOpacity = 1;
-    const technologyUsedColor = (usedLanguage, colorModifier, opacity) => {
+    let containerBgOpacity = 0.55;
+    let techTextOpacity = 1;
+
+    const technologyUsedColor = (usedLanguage, colorMod1, colorMod2, colorMod3, opacity) => {
         if (usedLanguage === 'Java') {
-            color = `rgb(168, 116, ${47 + colorModifier}, ${opacity})`
+            color = `rgb(${168 + colorMod1}, ${116 + colorMod2} , ${47 + colorMod3}, ${opacity})`
         }
         else if (usedLanguage === 'JavaScript') {
-            color = `rgb(239, 223, ${112 + colorModifier}, ${opacity})`
-            console.log(color);
+            color = `rgb(${239 + colorMod1}, ${223 + colorMod2} , ${112 + colorMod3}, ${opacity})`
         }
         else if (usedLanguage === 'HTML') {
-            color = `rgb(211, 86, ${53 + colorModifier}, ${opacity})`
+            color = `rgb(${211 + colorMod1}, ${86 + colorMod2} , ${53 + colorMod3}, ${opacity})`
         }
         else if (usedLanguage === 'TypeScript') {
-            color = `rgb(63, 115, ${135 + colorModifier}, ${opacity})`
+            color = `rgb(${63 + colorMod1}, ${115 + colorMod2}, ${135 + colorMod3}, ${opacity})`
         }
         else if (usedLanguage === 'CSS') {
-            color = `rgb(82, 64, ${120 + colorModifier}, ${opacity})`
+            color = `rgb(${82 + colorMod1}, ${64 + colorMod2}, ${120 + colorMod3}, ${opacity})`
         }
         else if (usedLanguage === 'Python') {
-            color = `rgb(68, 114, ${161 + colorModifier}, ${opacity})`
+            color = `rgb(${68 + colorMod1}, ${114 + colorMod2}, ${161 + colorMod3}, ${opacity})`
         }
         else if (usedLanguage === 'SCSS') {
-            color = `rgb(184, 91, ${138 + colorModifier}, ${opacity})`
+            color = `rgb(${184 + colorMod1}, ${91 + colorMod2} , ${138 + colorMod3}, ${opacity})`
         }
         else if (usedLanguage === null) {
-            color = `rgb(255, 255, 255, ${opacity})`
+            color = `rgb(${255 + colorMod1}, ${255 + colorMod2}, ${255 + colorMod3}, ${opacity})`
         }
         return color;
     }
@@ -54,10 +54,12 @@ export const ApiCard = props => {
     const capitalized = split.map((e) => capitalizeFirstLetter(e));
     apiName = capitalized.join('-');
 
-    const apiCardBgColor = technologyUsedColor(usedLanguage, 0, containerBackgroundOpacity);
-    const apiCardTechColor = technologyUsedColor(usedLanguage, 0, technologyTextOpacity);
+    const apiCardBgColor = technologyUsedColor(usedLanguage, 0, 0, 0, containerBgOpacity);
+    const apiCardTechColor = technologyUsedColor(usedLanguage, 0, 0, 0, techTextOpacity);
+    // const apiCardTechColorOnHover = technologyUsedColor(usedLanguage, 0, 0, 0, techTextOpacity);
 
     const [bgColorOnHover, setBgColorOnHover] = useState(initialColor);
+    // const [techColorOnHover, setTechColorOnHover] = useState(apiCardTechColor);
 
     return (
         <li
@@ -72,7 +74,14 @@ export const ApiCard = props => {
                 </div>
                 <div className={'api-card__repo-name'}>
                     <h2> {apiName} </h2>
-                    <h4 style={{color: apiCardTechColor}}>{usedLanguage}</h4>
+                    <h4
+                        // onMouseEnter={() => setTechColorOnHover(apiCardTechColorOnHover)}
+                        // onMouseLeave={() => setTechColorOnHover(apiCardTechColor)}
+                        // style={{color: techColorOnHover}}
+                        style={{color: apiCardTechColor}}
+                    >
+                        {usedLanguage}
+                    </h4>
                 </div>
             </div>
             <div className={'api-card__middle'}>
