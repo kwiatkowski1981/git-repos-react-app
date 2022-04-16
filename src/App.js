@@ -1,8 +1,18 @@
 import './App.css';
-import {ApiRepoList} from "./components/ApiRepoList";
+import {HeroContainer} from "./components/conteiners/HeroContainer";
+import {SkillsContainer} from "./components/conteiners/SkillsContainer";
+import {FooterContainer} from "./components/conteiners/FooterContainer";
+import {ProjectsContainer} from "./components/conteiners/ProjectsContainer";
 
-function App() {
-    return <ApiRepoList />
+export function App() {
+
+
+    return (
+        <>
+            <HeroContainer />
+            <SkillsContainer />
+            <ProjectsContainer />
+            <FooterContainer/>
+        </>
+    )
 }
-
-export default App;
