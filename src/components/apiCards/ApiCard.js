@@ -87,58 +87,30 @@ export const ApiCard = props => {
     const capitalized = split.map((e) => capitalizeFirstLetter(e));
     apiName = capitalized.join('-');
 
-    // const initialShadowColor = 'rgba(255, 255, 255, 0.5)';
-    // const techLogoBoxShadowLeft = shadowColor => {
-    //     return {
-    //         boxShadow: `-6px -6px 9px ${shadowColor} , 6px 6px 9px rgba(70, 70, 70, 0.12)`
-    //     }
-    // };
-    //
-    // const xxx = `inset -6px -6px 9px ${initialShadowColor}, inset 6px 6px 9px rgba(70, 70, 70, 0.16)`
-
-
-    // linear-gradient('0deg', 'rgba(255, 255, 255, 1)23%', 'rgba(175, 241, 250, 1) 100%')
-
-
     const apiCardBgColor = technologyUsedColor(usedLanguage, 0, 0, 0, containerBgOpacity);
     const apiCardTechColor = technologyUsedColor(usedLanguage, 0, 0, 0, techTextOpacity);
-    const apiCardTechColorOnHover = technologyUsedColor(usedLanguage, 100, 100, 0, techTextOpacity);
-    // const techLogoBoxShadowLeftOnHover = technologyUsedColor(technologyUsedColor(usedLanguage, 10, 10, 10, 0.2));
 
     const [bgColorOnHover, setBgColorOnHover] = useState(initialColor);
-    const [techColorOnHover, setTechColorOnHover] = useState(apiCardTechColor);
-    // const [shadowBoxColorLeft, setShadowBoxColorLeft] = useState(techLogoBoxShadowLeftOnHover(initialShadowColor));
-    // const [shadowBoxColorRight, setShadowBoxColorRight] = useState(techLogoBoxShadowLeftOnHover(initialShadowColor));
-
 
     return (
         <li
             className={'api-card__container'}
             onMouseEnter={() => {
                 setBgColorOnHover(apiCardBgColor)
-                setTechColorOnHover(apiCardTechColorOnHover)
-                // setShadowBoxColorLeft(techLogoBoxShadowLeft(techLogoBoxShadowLeftOnHover))
-                // setShadowBoxColorRight(techLogoBoxShadowRight(techLogoBoxShadowLeftOnHover))
             }}
             onMouseLeave={() => {
                 setBgColorOnHover(initialColor)
-                setTechColorOnHover(apiCardTechColor);
-                // setShadowBoxColorLeft(techLogoBoxShadowLeft(initialShadowColor))
-                // setShadowBoxColorRight(techLogoBoxShadowRight(initialShadowColor))
             }}
-            // style={{background: bgColorOnHover}}
             style={{background: `linear-gradient( ${0 +'deg'}, ${bgColorOnHover}  , ${initialColor} ${70 +'%'})` }}
         >
             <div className={'api-card__upper'}>
                 <div
                     className={'api-card__logo'}
-                    // style={shadowBoxColorLeft}
                 >
                     {technologyUsedIcon(usedLanguage)}
                 </div>
                 <div className={'api-card__repo-name'}>
                     <h2
-                        // style={{color: techColorOnHover}}
                         style={{color: apiCardTechColor}}
                     > {apiName}
                     </h2>
@@ -152,6 +124,7 @@ export const ApiCard = props => {
             <div className={'api-card__lower'}>
                 <ul className={'api-card__link-list'}>
                     <li className={'api-card__link'} style={ghPages === null ? {display: 'none'} : {'--i': 1}}>
+                    {/*<li className={'api-card__link'} style={{'--i': 1}}>*/}
                         <a href={ghPages === null ? '' : ghPages}> <FontAwesomeIcon icon={faGithub}/> </a>
                     </li>
 
