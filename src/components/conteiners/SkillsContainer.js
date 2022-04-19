@@ -17,15 +17,15 @@ export const SkillsContainer = () => {
             <section className="skills-container">
                 <h2 className={'article__title'}>My Skills</h2>
                 <h3 className={'skills__container-heading-3'}>Working knowledge</h3>
-                <SkillList list={workingKnowledge} className={'skills--list-1'}/>
+                <SkillList list={workingKnowledge} fillColor={'red'}/>
                 <h3 className={'skills__container-heading-3'}>Know something about</h3>
-                <SkillList list={knowSomethingAbout}/>
+                <SkillList list={knowSomethingAbout} fillColor={'blue'}/>
                 <h3 className={'skills__container-heading-3'}>Want to learn</h3>
-                <SkillList list={wantToLearn}/>
+                <SkillList list={wantToLearn} fillColor={'green'}/>
                 <h3 className={'skills__container-heading-3'}>The software I use</h3>
-                <SkillList list={mySoft}/>
+                <SkillList list={mySoft} fillColor={'orange'}/>
                 <h3 className={'skills__container-heading-3'}>Books that I have and will read in the near future</h3>
-                <SkillList list={booksHaveToRead}/>
+                <SkillList list={booksHaveToRead} fillColor={'orangered'}/>
             </section>
 
         </>

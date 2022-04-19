@@ -51,7 +51,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    align-self: start;
+    align-self: flex-start;
     width: 350px;
     height: 350px;
     border-radius: 50%;
@@ -120,20 +120,25 @@ body {
     justify-items: center;
 }
 
-.skill-list-element {
+.skill-list__element {
+    display: flex;
+    gap: 5rem;
+    justify-content: flex-start;
+    /*justify-content: center;*/
+    align-items: center;
     width: 400px;
-    padding: 12px;
+    padding: 8px;
     color: rgba(53, 64, 64, 0.7);
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
-    border-radius: 25px;
+    border-radius: 50px;
     box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.8), 4px 4px 8px rgba(70, 70, 70, 0.20),
     inset -4px -4px 8px rgba(255, 255, 255, 0.8), inset 4px 4px 8px rgba(70, 70, 70, 0.20);
     text-align: center;
 }
 
-.skills--list-1 {
-    margin-left: 60px;
+.skills-list-1 {
+    /*margin-left: 60px;*/
 }
 
 .skills__container-heading-3 {
@@ -147,9 +152,27 @@ body {
     background: rgba(70, 70, 70, 0.05);
     color: rgba(53, 64, 64, 0.7);
     box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.8), 4px 4px 8px rgba(70, 70, 70, 0.20);
-    /*inset -4px -4px 8px rgba(255, 255, 255, 0.8), inset 4px 4px 8px rgba(70, 70, 70, 0.20);*/
     border-radius: 25px;
+}
 
+.skill-list__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    box-shadow: -4px -4px 8px rgba(255, 255, 255, 0.8), 4px 4px 8px rgba(70, 70, 70, 0.20);
+}
+
+.skill-list__icon:after {
+    content: '';
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    border-radius: 50%;
+    box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5), inset 4px 4px 8px rgba(70, 70, 70, 0.20);
 }
 
 .projects-container {
